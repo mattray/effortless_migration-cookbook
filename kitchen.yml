@@ -1,0 +1,25 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  always_update_cookbooks: true
+  chef_license: accept
+  product_name: chef
+  product_version: 16
+
+verifier:
+  name: inspec
+  color: false
+
+# too many to test, use a kitchen.ec2.yml
+platforms:
+  - name: centos-7
+
+suites:
+  - name: default
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
