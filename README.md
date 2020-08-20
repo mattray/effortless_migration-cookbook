@@ -22,9 +22,13 @@ Example Habitat plan
 ## Effortless Config
 
 
+## Effortless Bootstrap
+
 
 the tests will take the existing attributes used by audit to populate the effortless-audit
 
 effortless-infra
 test 12,13,14,15,16 to effortless-16
 verify
+
+clean up chef_server_url

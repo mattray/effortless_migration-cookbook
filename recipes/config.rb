@@ -1,13 +1,4 @@
-hab_sup 'default' do
-  license 'accept'
-  auto_update true
-  event_stream_application 'effortless'
-  event_stream_environment 'home'
-  event_stream_site 'home'
-  event_stream_url 'roberto.bottlebru.sh:4222'
-  event_stream_token 'mZ7HwczDoFkIljIQvhFiE22YRO4='
-  event_stream_cert '/etc/chef/trusted_certs/roberto_bottlebru_sh.crt'
-end
+include_recipe "effortless_migration::default"
 
 hab_service 'mattray/effortless-config-base' do
   channel 'unstable'

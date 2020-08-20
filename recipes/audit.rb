@@ -1,22 +1,13 @@
-hab_sup 'default' do
-  license 'accept'
-  auto_update true
-  event_stream_application 'effortless'
-  event_stream_environment 'home'
-  event_stream_site 'home'
-  event_stream_url 'roberto.bottlebru.sh:4222'
-  event_stream_token 'mZ7HwczDoFkIljIQvhFiE22YRO4='
-  event_stream_cert '/etc/chef/trusted_certs/roberto_bottlebru_sh.crt'
-end
+include_recipe "effortless_migration::default"
 
-hab_service 'mattray/effortless-ndnd-home' do
+hab_service 'mattray/effortless-audit-base' do
   channel 'unstable'
   strategy 'at-once'
   topology 'standalone'
   update_condition 'track-channel'
 end
 
-hab_config 'effortless-ndnd-home.default' do
+hab_config 'effortless-audit-base.default' do
   config({
           chef_license: {
                          acceptance: 'accept',
@@ -25,7 +16,7 @@ hab_config 'effortless-ndnd-home.default' do
                      enable: true,
                      server_url: 'https://roberto.bottlebru.sh',
                      token: 'mZ7HwczDoFkIljIQvhFiE22YRO4=',
-                     environment: 'effortless',
+                     environment: 'audit-base',
                      node_uuid: node['chef_guid'],
                     },
          })

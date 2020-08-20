@@ -7,6 +7,7 @@ version '0.1.0'
 chef_version '>= 12.0' # oof
 
 # Linux & Windows only
+depends 'habitat', '~> 2.2'
 
 source_url 'https://github.com/mattray/effortless_migration-cookbook'
 issues_url 'https://github.com/mattray/effortless_migration-cookbook/issues'
